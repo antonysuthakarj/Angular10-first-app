@@ -1,37 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { Routes, RouterModule } from '@angular/router';
 
-// Import the page/menu components
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { ProductsComponent } from './products/products.component';
-
-// Define the page/menu routing path and component
-const routes: Routes = [
-  {
-    path: 'aboutus',
-    component: AboutusComponent
-  },
-  {
-    path: 'products',
-    component: ProductsComponent
-  }
-];
+// import the routing module
+import {AppRoutingModule} from './app-routing-module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AboutusComponent,
-    ProductsComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    // Include the router module
-    RouterModule.forRoot(routes)
+    AppRoutingModule    // add the routing component reference
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [AppRoutingModule]   // add the routing component reference
 })
 export class AppModule { }
 
